@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const StyledButton = styled.button`
+type StyledButtonProps = {
+  styleType?: 'remove' | 'send';
+};
+
+export const StyledButton = styled.button<StyledButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +33,7 @@ export const StyledButton = styled.button`
     if (styleType === 'send') return theme.fontSize.md;
   }};
   letter-spacing: 2px;
-  margin: ${({ theme, styleType }) => {
+  margin: ${({ styleType }) => {
     if (styleType === 'send') return '30px 0';
   }};
 

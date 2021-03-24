@@ -149,7 +149,11 @@ export const StyledPriceBox = styled.div`
   }
 `;
 
-export const StyledStockNumber = styled.span`
+type StyledStockNumberProps = {
+  outOfStock?: boolean;
+};
+
+export const StyledStockNumber = styled.span<StyledStockNumberProps>`
   font-weight: 700;
   margin-left: 4px;
 

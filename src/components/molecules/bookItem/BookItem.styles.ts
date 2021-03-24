@@ -88,7 +88,11 @@ export const StyledBookPrice = styled.div`
   }
 `;
 
-export const StyledBookLabel = styled.div`
+type StyledBookLabelProps = {
+  inStock?: boolean;
+};
+
+export const StyledBookLabel = styled.div<StyledBookLabelProps>`
   display: flex;
   align-items: center;
   justify-content: flex-end;

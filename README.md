@@ -1,7 +1,5 @@
 ### `English version below!`
 
-### Google Lighthouse Raport
-
 Shopi, jest to MVP aplikacji e-commerce. Projekt został stworzony, w technologii React + Redux Toolkit + TypeScript.
 Aplikacja powstała, w celach edukacyjno hobbystycznych. Dalsze cele rozwojowe, to stworzenie backendu, za pomocą technologii Node.js.
 

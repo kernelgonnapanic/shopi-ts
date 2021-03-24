@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, './src/index.js'),
+    app: path.resolve(__dirname, './src/index.tsx'),
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -17,6 +17,9 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, './public'),
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
   },
   module: {
     rules: [

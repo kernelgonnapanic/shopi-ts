@@ -17,6 +17,15 @@ import {
   StyledStockNumber,
 } from './AdminPanelBookList.styles';
 
+type BookValues = {
+  bookAuthor: string;
+  bookId: string;
+  bookImage: string;
+  bookPrice: number;
+  bookStockAmount: number;
+  bookTitle: string;
+};
+
 const AdminPanelBookList = () => {
   const books = useSelector(selectBooks);
   const dispatch = useDispatch();
@@ -24,7 +33,10 @@ const AdminPanelBookList = () => {
   return (
     <StyledBookList>
       {books.map(
-        ({ bookImage, bookId, bookTitle, bookAuthor, bookPrice, bookStockAmount }, index) => (
+        (
+          { bookImage, bookId, bookTitle, bookAuthor, bookPrice, bookStockAmount }: BookValues,
+          index: number,
+        ) => (
           <StyledBookItem key={bookId}>
             <StyledBookInfoBox>
               <StyledImgContainer>

@@ -16,19 +16,19 @@ import AddToCartAlert from '../addToCartAlert/AddToCartAlert';
 import Button from '../../atoms/button/Button';
 
 interface BookProps {
-  readonly id: string;
-  readonly image: string;
-  readonly title: string;
-  readonly author: string;
-  readonly price: number;
+  id: string;
+  image: string;
+  title: string;
+  author: string;
+  price: number;
 }
 
 interface ComponentProps extends BookProps {
-  readonly genre: string;
-  readonly bookStockAmount: number;
-  readonly addToCartList: ({ id, image, title, author, price }: BookProps) => void;
-  readonly addToCartCounter: () => void;
-  readonly addProductPrice: (price: number) => void;
+  genre: string;
+  bookStockAmount: number;
+  addToCartList: ({ id, image, title, author, price }: BookProps) => void;
+  addToCartCounter: () => void;
+  addProductPrice: (price: number) => void;
 }
 
 const BookItem = ({

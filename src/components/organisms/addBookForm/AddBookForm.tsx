@@ -1,7 +1,17 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+
+type FormValues = {
+  bookAuthor: string;
+  bookGenre: string;
+  bookId: string;
+  bookImage: any;
+  bookPrice: any;
+  bookStockAmount: any;
+  bookTitle: string;
+};
 
 import {
   InputWrapper,
@@ -18,9 +28,9 @@ import Button from '../../atoms/button/Button';
 
 const AddBookForm = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm<FormValues>();
 
-  const onSubmit = (data, e) => {
+  const onSubmit: SubmitHandler<FormValues> = (data, e: any) => {
     data.bookImage.length
       ? (data.bookImage = data.bookImage[0].name)
       : (data.bookImage = 'default-img.png');

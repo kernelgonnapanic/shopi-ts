@@ -16,14 +16,29 @@ import {
   StyledBookInfoBox,
   StyledPriceBox,
   StyledStockNumber,
-} from '../../organisms/adminPanelBookList/AdminPanelBookList.styles.js';
+} from '../../organisms/adminPanelBookList/AdminPanelBookList.styles';
 import Button from '../../atoms/button/Button';
+
+type RemoveBookValues = {
+  id: string;
+  price: number;
+  quantity: number;
+};
+
+type BookValues = {
+  author: string;
+  id: string;
+  image: string;
+  price: number;
+  quantity: number;
+  title: string;
+};
 
 const CartView = () => {
   const cartBookList = useSelector(selectCartBookList);
   const dispatch = useDispatch();
 
-  const removeBook = ({ id, price, quantity }) => {
+  const removeBook = ({ id, price, quantity }: RemoveBookValues) => {
     dispatch(removeBookFromCart({ id, quantity }));
     dispatch(removeFromCartCounter());
     dispatch(subtractProductPrice(price));
@@ -33,7 +48,7 @@ const CartView = () => {
     <>
       {cartBookList.length > 0 ? (
         <StyledBookList>
-          {cartBookList.map(({ id, image, title, author, price, quantity }) => (
+          {cartBookList.map(({ id, image, title, author, price, quantity }: BookValues) => (
             <StyledBookItem key={id}>
               <StyledBookInfoBox>
                 <StyledImgContainer>

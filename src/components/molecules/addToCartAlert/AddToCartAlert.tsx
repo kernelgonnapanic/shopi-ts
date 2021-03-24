@@ -1,11 +1,14 @@
 import React from 'react';
 import Alert from '@material-ui/lab/Alert';
 import Collapse from '@material-ui/core/Collapse';
-import PropTypes from 'prop-types';
 
 import { StyledAlertContainer, StyledAlert } from './AddToCartAlert.styles';
 
-const AddToCartAlert = ({ open }) => {
+type ComponentProps = {
+  open: boolean;
+};
+
+const AddToCartAlert = ({ open }: ComponentProps) => {
   return (
     <StyledAlertContainer>
       <Collapse in={open}>
@@ -15,10 +18,6 @@ const AddToCartAlert = ({ open }) => {
       </Collapse>
     </StyledAlertContainer>
   );
-};
-
-AddToCartAlert.propTypes = {
-  open: PropTypes.bool.isRequired,
 };
 
 export default AddToCartAlert;

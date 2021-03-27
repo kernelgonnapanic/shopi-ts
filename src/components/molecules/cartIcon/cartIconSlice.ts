@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import type { RootState } from '../../../app/store';
+
 const cartIconSlice = createSlice({
   name: 'cartCounter',
   initialState: {
@@ -15,6 +17,6 @@ const cartIconSlice = createSlice({
   },
 });
 
-export const selectCartCounter = (state) => state.cartCounter.value;
+export const selectCartCounter = (state: RootState) => state.cartCounter.value;
 export const { addToCartCounter, removeFromCartCounter } = cartIconSlice.actions;
 export default cartIconSlice.reducer;

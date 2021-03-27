@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import type { RootState } from '../../../app/store';
+
 const orderSummarySlice = createSlice({
   name: 'cartOrderSummary',
   initialState: {
@@ -17,6 +19,6 @@ const orderSummarySlice = createSlice({
   },
 });
 
-export const selectCartOrderSummary = (state) => state.cartOrderSummary.cartTotalPrice;
+export const selectCartOrderSummary = (state: RootState) => state.cartOrderSummary.cartTotalPrice;
 export const { addProductPrice, subtractProductPrice } = orderSummarySlice.actions;
 export default orderSummarySlice.reducer;

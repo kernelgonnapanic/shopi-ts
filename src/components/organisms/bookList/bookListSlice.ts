@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import type { RootState } from '../../../app/store';
+
 const bookListSlice = createSlice({
   name: 'bookList',
   initialState: [
@@ -67,6 +69,6 @@ const bookListSlice = createSlice({
   },
 });
 
-export const selectBooks = (state) => state.bookList;
+export const selectBooks = (state: RootState) => state.bookList;
 export const { addBook, removeBook } = bookListSlice.actions;
 export default bookListSlice.reducer;

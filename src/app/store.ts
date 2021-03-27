@@ -5,7 +5,7 @@ import cartIconReducer from '../components/molecules/cartIcon/cartIconSlice';
 import cartViewReducer from '../components/templates/cartView/cartViewSlice';
 import orderSummaryReducer from '../components/molecules/orderSummary/orderSummarySlice';
 
-export default configureStore({
+export const store = configureStore({
   reducer: {
     bookList: bookListReducer,
     cartCounter: cartIconReducer,
@@ -13,3 +13,7 @@ export default configureStore({
     cartOrderSummary: orderSummaryReducer,
   },
 });
+
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

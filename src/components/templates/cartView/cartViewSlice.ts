@@ -2,13 +2,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import type { RootState } from '../../../app/store';
 
-export interface CartViewActionsProps {
+interface RemoveBookFromCartProps {
+  quantity: number;
   id: string;
+}
+export interface CartViewActionsProps extends RemoveBookFromCartProps {
   image: string;
   title: string;
   author: string;
   price: number;
-  quantity: number;
 }
 
 const initialState: CartViewActionsProps[] = [];
@@ -18,8 +20,7 @@ const cartViewSlice = createSlice({
   initialState,
   reducers: {
     addToCartList: (state, action: PayloadAction<CartViewActionsProps>) => {
-      const { id, image, title, author, price } = action.payload;
-      const quantity = 1;
+      const { id, image, title, author, price, quantity } = action.payload;
       const bookIndex = state.findIndex((element: CartViewActionsProps) => element.id == id);
 
       if (!state.some((e) => e.id === id)) {
@@ -28,7 +29,7 @@ const cartViewSlice = createSlice({
         state[bookIndex].quantity += 1;
       }
     },
-    removeBookFromCart: (state, action: PayloadAction<CartViewActionsProps>) => {
+    removeBookFromCart: (state, action: PayloadAction<RemoveBookFromCartProps>) => {
       const { id, quantity } = action.payload;
       const bookIndex = state.findIndex((e) => e.id == id);
 

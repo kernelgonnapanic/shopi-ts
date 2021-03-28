@@ -19,20 +19,17 @@ import {
 } from '../../organisms/adminPanelBookList/AdminPanelBookList.styles';
 import Button from '../../atoms/button/Button';
 
-type RemoveBookValues = {
+interface RemoveBookValues {
   id: string;
   price: number;
   quantity: number;
-};
+}
 
-type BookValues = {
+interface BookValues extends RemoveBookValues {
   author: string;
-  id: string;
   image: string;
-  price: number;
-  quantity: number;
   title: string;
-};
+}
 
 const CartView = () => {
   const cartBookList = useSelector(selectCartBookList);

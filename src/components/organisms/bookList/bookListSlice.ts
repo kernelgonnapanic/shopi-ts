@@ -13,6 +13,7 @@ const bookListSlice = createSlice({
       bookPrice: 40,
       bookId: '057f890d-199e-4d0d-974e-c68d9960d82f',
       bookStockAmount: 4,
+      quantity: 1,
     },
     {
       bookImage: 'elon-musk.jpg',
@@ -22,6 +23,7 @@ const bookListSlice = createSlice({
       bookPrice: 39,
       bookId: '057f890d-199e-4d0d-974e-c68d9960d5df',
       bookStockAmount: 2,
+      quantity: 1,
     },
     {
       bookImage: 'amazon.jpg',
@@ -31,6 +33,7 @@ const bookListSlice = createSlice({
       bookPrice: 35.57,
       bookId: '057f890d-199e-4d0d-974e-c68d9960d2rh',
       bookStockAmount: 0,
+      quantity: 1,
     },
     {
       bookImage: 'leonardo.jpg',
@@ -40,6 +43,7 @@ const bookListSlice = createSlice({
       bookPrice: 29.99,
       bookId: '057f890d-199e-4d0d-974e-c68d9960p25r',
       bookStockAmount: 2,
+      quantity: 1,
     },
   ],
   reducers: {
@@ -52,6 +56,7 @@ const bookListSlice = createSlice({
         bookPrice,
         bookId,
         bookStockAmount,
+        quantity,
       } = action.payload;
       state.push({
         bookImage,
@@ -61,6 +66,7 @@ const bookListSlice = createSlice({
         bookPrice,
         bookId,
         bookStockAmount,
+        quantity,
       });
     },
     removeBook: (state, action) => {

@@ -21,12 +21,13 @@ interface BookProps {
   title: string;
   author: string;
   price: number;
+  quantity: number;
 }
 
 interface ComponentProps extends BookProps {
   genre: string;
   bookStockAmount: number;
-  addToCartList: ({ id, image, title, author, price }: BookProps) => void;
+  addToCartList: ({ id, image, title, author, price, quantity }: BookProps) => void;
   addToCartCounter: () => void;
   addProductPrice: (price: number) => void;
 }
@@ -42,6 +43,7 @@ const BookItem = ({
   addToCartList,
   addToCartCounter,
   addProductPrice,
+  quantity,
 }: ComponentProps) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
@@ -54,8 +56,8 @@ const BookItem = ({
     }, 2000);
   };
 
-  const handleAddToCart = ({ id, image, title, author, price }: BookProps) => {
-    dispatch(addToCartList({ id, image, title, author, price }));
+  const handleAddToCart = ({ id, image, title, author, price, quantity }: BookProps) => {
+    dispatch(addToCartList({ id, image, title, author, price, quantity }));
     dispatch(addToCartCounter());
     dispatch(addProductPrice(price));
     handleOpen();
@@ -75,7 +77,7 @@ const BookItem = ({
                 <span>in stock</span>
                 <Button
                   styleType="send"
-                  onClick={() => handleAddToCart({ id, image, title, author, price })}
+                  onClick={() => handleAddToCart({ id, image, title, author, price, quantity })}
                 >
                   add to cart
                 </Button>

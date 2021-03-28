@@ -8,16 +8,6 @@ import { addToCartList } from '../../templates/cartView/cartViewSlice';
 import { addProductPrice } from '../../molecules/orderSummary/orderSummarySlice';
 import BookItem from '../../molecules/bookItem/BookItem';
 
-type BookValues = {
-  bookAuthor: string;
-  bookId: string;
-  bookImage: string;
-  bookPrice: number;
-  bookStockAmount: number;
-  bookTitle: string;
-  bookGenre: string;
-};
-
 const BookList = () => {
   const books = useSelector(selectBooks);
 
@@ -32,7 +22,8 @@ const BookList = () => {
           bookGenre,
           bookPrice,
           bookStockAmount,
-        }: BookValues) => (
+          quantity,
+        }) => (
           <BookItem
             key={bookId}
             id={bookId}
@@ -45,6 +36,7 @@ const BookList = () => {
             addToCartCounter={addToCartCounter}
             addToCartList={addToCartList}
             addProductPrice={addProductPrice}
+            quantity={quantity}
           />
         ),
       )}

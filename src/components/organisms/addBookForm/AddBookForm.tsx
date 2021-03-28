@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,6 +11,7 @@ type FormValues = {
   bookPrice: any;
   bookStockAmount: any;
   bookTitle: string;
+  quantity: 1;
 };
 
 import {
@@ -30,13 +31,14 @@ const AddBookForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm<FormValues>();
 
-  const onSubmit: SubmitHandler<FormValues> = (data, e: any) => {
+  const onSubmit = (data: FormValues, e: any) => {
     data.bookImage.length
       ? (data.bookImage = data.bookImage[0].name)
       : (data.bookImage = 'default-img.png');
     data.bookId = uuidv4();
     data.bookStockAmount = parseInt(data.bookStockAmount);
     data.bookPrice = parseFloat(data.bookPrice);
+    data.quantity = 1;
     dispatch(addBook(data));
     e.target.reset();
   };

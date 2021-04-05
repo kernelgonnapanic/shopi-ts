@@ -29,9 +29,9 @@ import Button from '../../atoms/button/Button';
 
 const AddBookForm = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit, errors } = useForm<FormValues>();
+  const { register, handleSubmit, errors, reset } = useForm<FormValues>();
 
-  const onSubmit = (data: FormValues, e: any) => {
+  const onSubmit = (data: FormValues) => {
     data.bookImage.length
       ? (data.bookImage = data.bookImage[0].name)
       : (data.bookImage = 'default-img.png');
@@ -40,7 +40,7 @@ const AddBookForm = () => {
     data.bookPrice = parseFloat(data.bookPrice);
     data.quantity = 1;
     dispatch(addBook(data));
-    e.target.reset();
+    reset();
   };
 
   return (
